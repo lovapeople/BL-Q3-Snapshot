@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SharkNinja × Bing Lee – Demo Dashboard Jan–May 2026</title>
+<title>SharkNinja × Bing Lee – Demo Dashboard Jul–Sep 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
@@ -130,7 +130,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--navy);fon
       </div>
     </div>
     <h1>Bing Lee <span>Rhodes</span></h1>
-    <div class="hero-sub">January – May 2026 · NSW · All Champions</div>
+    <div class="hero-sub">July – September 2026 · NSW · All Champions</div>
     <div class="hero-retailer">Bing Lee</div>
   </div>
 
@@ -146,12 +146,12 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--navy);fon
   </div>
 
   <div class="kpi-grid">
-    <div class="kpi"><div class="kpi-lbl">Total Units Sold</div><div class="kpi-val pk" id="kpi-units">329</div><div class="kpi-sub">Jan–May 2026</div></div>
-    <div class="kpi nt"><div class="kpi-lbl">Shifts</div><div class="kpi-val" id="kpi-shifts">63</div><div class="kpi-sub">days on the floor</div></div>
-    <div class="kpi nt"><div class="kpi-lbl">Total Hours</div><div class="kpi-val" id="kpi-hours">262</div><div class="kpi-sub">Jan–May 2026</div></div>
-    <div class="kpi gr"><div class="kpi-lbl">Total Revenue (RRP)</div><div class="kpi-val gr" id="kpi-rrp">$128,042</div><div class="kpi-sub">Jan–May 2026</div></div>
-    <div class="kpi gr"><div class="kpi-lbl">Revenue Per Hour</div><div class="kpi-val gr" id="kpi-revhr">$489</div><div class="kpi-sub">RRP / hour</div></div>
-    <div class="kpi"><div class="kpi-lbl">Avg Units / Hour</div><div class="kpi-val pk" id="kpi-uhr">1.26</div><div class="kpi-sub">units per hour</div></div>
+    <div class="kpi"><div class="kpi-lbl">Total Units Sold</div><div class="kpi-val pk" id="kpi-units">204</div><div class="kpi-sub">Jul–Sep 2026</div></div>
+    <div class="kpi nt"><div class="kpi-lbl">Shifts</div><div class="kpi-val" id="kpi-shifts">52</div><div class="kpi-sub">days on the floor</div></div>
+    <div class="kpi nt"><div class="kpi-lbl">Total Hours</div><div class="kpi-val" id="kpi-hours">217</div><div class="kpi-sub">Jul–Sep 2026</div></div>
+    <div class="kpi gr"><div class="kpi-lbl">Total Revenue (RRP)</div><div class="kpi-val gr" id="kpi-rrp">$95,031</div><div class="kpi-sub">Jul–Sep 2026</div></div>
+    <div class="kpi gr"><div class="kpi-lbl">Revenue Per Hour</div><div class="kpi-val gr" id="kpi-revhr">$437</div><div class="kpi-sub">RRP / hour</div></div>
+    <div class="kpi"><div class="kpi-lbl">Avg Units / Hour</div><div class="kpi-val pk" id="kpi-uhr">0.94</div><div class="kpi-sub">units per hour</div></div>
   </div>
 
   <div class="cg">
@@ -186,7 +186,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--navy);fon
     </table>
   </div>
 
-  <div class="footer">SharkNinja × LOVA People · Bing Lee Rhodes · Jan–May 2026</div>
+  <div class="footer">SharkNinja × LOVA People · Bing Lee Rhodes · Jul–Sep 2026</div>
 </div>
 
 <!-- MODAL -->
@@ -222,127 +222,107 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--navy);fon
 Chart.register(ChartDataLabels);
 
 const PINK='#E6007E',NAVY='#0B2545',INDIGO='#4338CA',TEAL='#0D9488',AMBER='#F59E0B',GREY='#6B7280',GREEN='#059669';
-const MONTHS=['Jan','Feb','Mar','Apr','May'];
+const MONTHS=["Jul", "Aug", "Sep"];
 const CATS=['Coffee Machine','Cooking','Floor Care','Frozen','Other Products','Beauty'];
 const CAT_COLORS=[AMBER,NAVY,INDIGO,TEAL,GREY,PINK];
 
 const catUnitsM={
-  Jan:{'Coffee Machine':2,Cooking:15,'Floor Care':12,Frozen:10,'Other Products':22,Beauty:2},
-  Feb:{'Coffee Machine':4,Cooking:20,'Floor Care':19,Frozen:5,'Other Products':21,Beauty:3},
-  Mar:{'Coffee Machine':1,Cooking:21,'Floor Care':13,Frozen:7,'Other Products':10,Beauty:2},
-  Apr:{'Coffee Machine':3,Cooking:21,'Floor Care':12,Frozen:3,'Other Products':17,Beauty:7},
-  May:{'Coffee Machine':1,Cooking:23,'Floor Care':16,Frozen:6,'Other Products':23,Beauty:8}
+  Jul:{'Coffee Machine':4,'Cooking':17,'Floor Care':23,'Frozen':4,'Other Products':7,'Beauty':8},
+  Aug:{'Coffee Machine':1,'Cooking':20,'Floor Care':31,'Frozen':12,'Other Products':11,'Beauty':7},
+  Sep:{'Coffee Machine':3,'Cooking':16,'Floor Care':14,'Frozen':6,'Other Products':18,'Beauty':2}
 };
 const catRrpM={
-  Jan:{'Coffee Machine':777,Cooking:4938,'Floor Care':4719,Frozen:4325,'Other Products':7439,Beauty:856},
-  Feb:{'Coffee Machine':1583,Cooking:8109,'Floor Care':8352,Frozen:2193,'Other Products':8143,Beauty:1243},
-  Mar:{'Coffee Machine':400,Cooking:8293,'Floor Care':5647,Frozen:2941,'Other Products':3670,Beauty:798},
-  Apr:{'Coffee Machine':1098,Cooking:7298,'Floor Care':4933,Frozen:1092,'Other Products':5983,Beauty:2888},
-  May:{'Coffee Machine':550,Cooking:9168,'Floor Care':6525,Frozen:2787,'Other Products':8427,Beauty:2867}
+  Jul:{'Coffee Machine':3199.96,'Cooking':7149.83,'Floor Care':11289.9,'Frozen':2099.96,'Other Products':1619.93,'Beauty':4699.92},
+  Aug:{'Coffee Machine':799.99,'Cooking':9199.81,'Floor Care':19639.8,'Frozen':5149.88,'Other Products':2908.9,'Beauty':2799.93},
+  Sep:{'Coffee Machine':2399.97,'Cooking':7149.84,'Floor Care':7943.92,'Frozen':2799.94,'Other Products':3629.82,'Beauty':549.98}
 };
 const monthlyBase={
-  units:[63,72,54,63,77],rrp:[23055,29622,21749,23293,30323],
-  hours:[53.33,47,53.5,50,58.17],shifts:[13,11,13,12,14]
+  units:[63, 82, 59],rrp:[30059.47, 40498.31, 24473.47],
+  hours:[104.5, 58.83, 54.0],shifts:[25, 14, 13]
 };
 const monthlyDetail={
-  Jan:[
-    {date:'15/01',emp:'Violet Forde',hours:4.0,units:1,rrp:300,cats:{'Coffee Machine':0,Cooking:0,'Floor Care':0,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'17/01',emp:'Violet Forde',hours:4.5,units:5,rrp:1980,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':1,Frozen:0,'Other Products':3,Beauty:0}},
-    {date:'18/01',emp:'Violet Forde',hours:4.0,units:5,rrp:1649,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':1,Frozen:1,'Other Products':0,Beauty:0}},
-    {date:'22/01',emp:'Violet Forde',hours:4.0,units:5,rrp:1579,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':1,Frozen:1,'Other Products':2,Beauty:0}},
-    {date:'24/01',emp:'Violet Forde',hours:4.0,units:7,rrp:3448,cats:{'Coffee Machine':0,Cooking:0,'Floor Care':2,Frozen:5,'Other Products':0,Beauty:0}},
-    {date:'25/01',emp:'Violet Forde',hours:4.5,units:12,rrp:4580,cats:{'Coffee Machine':1,Cooking:2,'Floor Care':3,Frozen:1,'Other Products':5,Beauty:0}},
-    {date:'29/01',emp:'Violet Forde',hours:4.0,units:1,rrp:500,cats:{'Coffee Machine':0,Cooking:0,'Floor Care':0,Frozen:0,'Other Products':0,Beauty:1}},
-    {date:'03/01',emp:'Yaru (Jessica) Yan',hours:4.0,units:8,rrp:3340,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':2,Frozen:2,'Other Products':3,Beauty:0}},
-    {date:'04/01',emp:'Yaru (Jessica) Yan',hours:4.0,units:2,rrp:600,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':0,Frozen:0,'Other Products':0,Beauty:0}},
-    {date:'08/01',emp:'Yaru (Jessica) Yan',hours:4.0,units:4,rrp:1583,cats:{'Coffee Machine':1,Cooking:1,'Floor Care':0,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'10/01',emp:'Yaru (Jessica) Yan',hours:4.0,units:7,rrp:1415,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':0,Frozen:0,'Other Products':5,Beauty:0}},
-    {date:'11/01',emp:'Yaru (Jessica) Yan',hours:4.33,units:5,rrp:1781,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:1}},
-    {date:'31/01',emp:'Zunaira Baig',hours:4.0,units:1,rrp:300,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':0,Frozen:0,'Other Products':0,Beauty:0}}
+  Jul:[
+    {date:'02/07',emp:'Amelia Forde',hours:4.5,units:2,rrp:969.98,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':1,'Beauty':1}},
+    {date:'02/07',emp:'Violet Forde',hours:4,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'02/07',emp:'Uyen Phuong Le',hours:4,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'04/07',emp:'Violet Forde',hours:4,units:4,rrp:2398.97,cats:{'Coffee Machine':1,'Cooking':1,'Floor Care':1,'Frozen':0,'Other Products':0,'Beauty':1}},
+    {date:'04/07',emp:'Amelia Forde',hours:4,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'04/07',emp:'Uyen Phuong Le',hours:4,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'05/07',emp:'Amelia Forde',hours:4.5,units:2,rrp:1549.98,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':2}},
+    {date:'05/07',emp:'Violet Forde',hours:4,units:5,rrp:2598.96,cats:{'Coffee Machine':1,'Cooking':0,'Floor Care':3,'Frozen':0,'Other Products':0,'Beauty':1}},
+    {date:'05/07',emp:'Uyen Phuong Le',hours:4,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'09/07',emp:'Iti Varma',hours:4,units:7,rrp:2947.95,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':4,'Frozen':2,'Other Products':1,'Beauty':0}},
+    {date:'09/07',emp:'Uyen Phuong Le',hours:5.5,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'11/07',emp:'Violet Forde',hours:4,units:6,rrp:2598.95,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':3,'Frozen':1,'Other Products':1,'Beauty':0}},
+    {date:'11/07',emp:'Uyen Phuong Le',hours:5,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'11/07',emp:'Jennifer Tran',hours:4,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'12/07',emp:'Violet Forde',hours:4,units:8,rrp:3349.92,cats:{'Coffee Machine':0,'Cooking':4,'Floor Care':2,'Frozen':0,'Other Products':2,'Beauty':0}},
+    {date:'12/07',emp:'Jennifer Tran',hours:4,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'12/07',emp:'Uyen Phuong Le',hours:5,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'16/07',emp:'Iti Varma',hours:4,units:5,rrp:2298.96,cats:{'Coffee Machine':1,'Cooking':3,'Floor Care':1,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'18/07',emp:'Violet Forde',hours:4,units:5,rrp:1999.95,cats:{'Coffee Machine':0,'Cooking':3,'Floor Care':0,'Frozen':1,'Other Products':1,'Beauty':0}},
+    {date:'19/07',emp:'Violet Forde',hours:4,units:5,rrp:2047.97,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':3,'Frozen':0,'Other Products':0,'Beauty':1}},
+    {date:'23/07',emp:'Iti Varma',hours:4,units:2,rrp:1299.98,cats:{'Coffee Machine':1,'Cooking':1,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'25/07',emp:'Violet Forde',hours:4,units:3,rrp:1397.99,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':2,'Frozen':0,'Other Products':1,'Beauty':0}},
+    {date:'26/07',emp:'Violet Forde',hours:4,units:6,rrp:3249.94,cats:{'Coffee Machine':0,'Cooking':3,'Floor Care':1,'Frozen':0,'Other Products':0,'Beauty':2}},
+    {date:'30/07',emp:'Polly Tong',hours:4,units:1,rrp:449.99,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':1,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'30/07',emp:'Iti Varma',hours:4,units:2,rrp:899.98,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':2,'Frozen':0,'Other Products':0,'Beauty':0}}
   ],
-  Feb:[
-    {date:'07/02',emp:'Violet Forde',hours:4.0,units:7,rrp:2977,cats:{'Coffee Machine':1,Cooking:3,'Floor Care':1,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'08/02',emp:'Violet Forde',hours:4.0,units:4,rrp:2238,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':2,Frozen:0,'Other Products':0,Beauty:0}},
-    {date:'14/02',emp:'Violet Forde',hours:4.0,units:9,rrp:2900,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':3,Frozen:2,'Other Products':1,Beauty:0}},
-    {date:'15/02',emp:'Violet Forde',hours:4.0,units:6,rrp:3000,cats:{'Coffee Machine':1,Cooking:2,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'21/02',emp:'Violet Forde',hours:4.0,units:10,rrp:4198,cats:{'Coffee Machine':1,Cooking:3,'Floor Care':4,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'22/02',emp:'Violet Forde',hours:4.0,units:4,rrp:1598,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':1,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'28/02',emp:'Violet Forde',hours:4.0,units:8,rrp:3499,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':3,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'01/02',emp:'Yaru (Jessica) Yan',hours:4.5,units:6,rrp:1915,cats:{'Coffee Machine':1,Cooking:1,'Floor Care':2,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'06/02',emp:'Yaru (Jessica) Yan',hours:4.0,units:4,rrp:1148,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':1,Frozen:1,'Other Products':1,Beauty:0}},
-    {date:'12/02',emp:'Yaru (Jessica) Yan',hours:3.5,units:7,rrp:3299,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':2,Frozen:1,'Other Products':2,Beauty:1}},
-    {date:'26/02',emp:'Yaru (Jessica) Yan',hours:4.0,units:7,rrp:2850,cats:{'Coffee Machine':0,Cooking:0,'Floor Care':0,Frozen:1,'Other Products':4,Beauty:2}}
+  Aug:[
+    {date:'01/08',emp:'Violet Forde',hours:4,units:3,rrp:1898.98,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':2,'Frozen':1,'Other Products':0,'Beauty':0}},
+    {date:'02/08',emp:'Violet Forde',hours:4,units:4,rrp:1899.96,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':2,'Frozen':1,'Other Products':0,'Beauty':1}},
+    {date:'06/08',emp:'Polly Tong',hours:4,units:2,rrp:898.99,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':1,'Frozen':0,'Other Products':0,'Beauty':1}},
+    {date:'08/08',emp:'Violet Forde',hours:4,units:6,rrp:2178.95,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':2,'Frozen':0,'Other Products':3,'Beauty':0}},
+    {date:'09/08',emp:'Violet Forde',hours:4,units:7,rrp:3049.94,cats:{'Coffee Machine':1,'Cooking':4,'Floor Care':0,'Frozen':1,'Other Products':0,'Beauty':1}},
+    {date:'13/08',emp:'Polly Tong',hours:4,units:4,rrp:1748.97,cats:{'Coffee Machine':0,'Cooking':2,'Floor Care':2,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'15/08',emp:'Violet Forde',hours:4,units:8,rrp:3799.92,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':1,'Frozen':3,'Other Products':1,'Beauty':2}},
+    {date:'16/08',emp:'Violet Forde',hours:4.5,units:6,rrp:2129.94,cats:{'Coffee Machine':0,'Cooking':2,'Floor Care':0,'Frozen':2,'Other Products':1,'Beauty':1}},
+    {date:'20/08',emp:'Polly Tong',hours:4,units:3,rrp:1149.97,cats:{'Coffee Machine':0,'Cooking':2,'Floor Care':0,'Frozen':0,'Other Products':1,'Beauty':0}},
+    {date:'22/08',emp:'Violet Forde',hours:4,units:7,rrp:3649.93,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':2,'Frozen':2,'Other Products':2,'Beauty':0}},
+    {date:'23/08',emp:'Violet Forde',hours:4.5,units:10,rrp:4946.94,cats:{'Coffee Machine':0,'Cooking':3,'Floor Care':6,'Frozen':0,'Other Products':1,'Beauty':0}},
+    {date:'27/08',emp:'Polly Tong',hours:4,units:3,rrp:899.97,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':0,'Frozen':1,'Other Products':1,'Beauty':0}},
+    {date:'29/08',emp:'Iti Varma',hours:5,units:4,rrp:2598.97,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':3,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'30/08',emp:'Violet Forde',hours:4.83,units:15,rrp:9646.88,cats:{'Coffee Machine':0,'Cooking':2,'Floor Care':10,'Frozen':1,'Other Products':1,'Beauty':1}}
   ],
-  Mar:[
-    {date:'07/03',emp:'Violet Forde',hours:4.0,units:6,rrp:2398,cats:{'Coffee Machine':0,Cooking:4,'Floor Care':1,Frozen:1,'Other Products':0,Beauty:0}},
-    {date:'08/03',emp:'Violet Forde',hours:4.5,units:5,rrp:2399,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'14/03',emp:'Violet Forde',hours:4.5,units:4,rrp:1599,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':1,Frozen:2,'Other Products':0,Beauty:0}},
-    {date:'15/03',emp:'Violet Forde',hours:4.0,units:3,rrp:1200,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':0,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'21/03',emp:'Violet Forde',hours:4.0,units:4,rrp:1749,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':2,Frozen:1,'Other Products':0,Beauty:0}},
-    {date:'22/03',emp:'Violet Forde',hours:4.5,units:6,rrp:2099,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':1,Frozen:1,'Other Products':1,Beauty:0}},
-    {date:'27/03',emp:'Violet Forde',hours:4.0,units:3,rrp:1248,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:0,'Other Products':0,Beauty:0}},
-    {date:'28/03',emp:'Violet Forde',hours:4.0,units:4,rrp:1599,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'06/03',emp:'Yaru (Jessica) Yan',hours:4.0,units:6,rrp:3148,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':2,Frozen:2,'Other Products':1,Beauty:0}},
-    {date:'13/03',emp:'Yaru (Jessica) Yan',hours:4.5,units:3,rrp:1200,cats:{'Coffee Machine':1,Cooking:0,'Floor Care':0,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'20/03',emp:'Yaru (Jessica) Yan',hours:4.0,units:5,rrp:1910,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:0,'Other Products':0,Beauty:2}},
-    {date:'29/03',emp:'Iti Varma',hours:4.0,units:4,rrp:1200,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'30/03',emp:'Iti Varma',hours:4.0,units:1,rrp:0,cats:{'Coffee Machine':0,Cooking:0,'Floor Care':1,Frozen:0,'Other Products':0,Beauty:0}}
-  ],
-  Apr:[
-    {date:'02/04',emp:'Iti Varma',hours:4.0,units:4,rrp:1578,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'04/04',emp:'Iti Varma',hours:4.0,units:6,rrp:1580,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':0,Frozen:1,'Other Products':2,Beauty:0}},
-    {date:'09/04',emp:'Iti Varma',hours:4.0,units:3,rrp:1550,cats:{'Coffee Machine':0,Cooking:0,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'11/04',emp:'Iti Varma',hours:4.0,units:6,rrp:1750,cats:{'Coffee Machine':0,Cooking:4,'Floor Care':0,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'12/04',emp:'Iti Varma',hours:4.0,units:6,rrp:2848,cats:{'Coffee Machine':0,Cooking:0,'Floor Care':2,Frozen:1,'Other Products':2,Beauty:1}},
-    {date:'25/04',emp:'Iti Varma',hours:4.0,units:8,rrp:3697,cats:{'Coffee Machine':1,Cooking:3,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:1}},
-    {date:'26/04',emp:'Iti Varma',hours:4.0,units:3,rrp:1098,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':1,Frozen:0,'Other Products':0,Beauty:1}},
-    {date:'05/04',emp:'Violet Forde',hours:4.5,units:4,rrp:1749,cats:{'Coffee Machine':1,Cooking:2,'Floor Care':0,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'06/04',emp:'Violet Forde',hours:4.0,units:4,rrp:1200,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:0,'Other Products':0,Beauty:1}},
-    {date:'13/04',emp:'Violet Forde',hours:4.0,units:8,rrp:3499,cats:{'Coffee Machine':1,Cooking:3,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:1}},
-    {date:'19/04',emp:'Violet Forde',hours:4.5,units:6,rrp:2099,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':1,Frozen:1,'Other Products':1,Beauty:0}},
-    {date:'27/04',emp:'Violet Forde',hours:5.0,units:5,rrp:1645,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:1,'Other Products':1,Beauty:0}}
-  ],
-  May:[
-    {date:'03/05',emp:'Iti Varma',hours:4.0,units:7,rrp:2898,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':1,Frozen:0,'Other Products':2,Beauty:1}},
-    {date:'04/05',emp:'Iti Varma',hours:4.0,units:5,rrp:1997,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:1,'Other Products':0,Beauty:1}},
-    {date:'07/05',emp:'Iti Varma',hours:4.0,units:4,rrp:1197,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':1,Frozen:1,'Other Products':0,Beauty:1}},
-    {date:'10/05',emp:'Iti Varma',hours:4.17,units:5,rrp:2095,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:1,'Other Products':0,Beauty:1}},
-    {date:'11/05',emp:'Iti Varma',hours:4.0,units:3,rrp:1198,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':1,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'17/05',emp:'Iti Varma',hours:4.0,units:4,rrp:1649,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':2,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'18/05',emp:'Iti Varma',hours:4.0,units:4,rrp:1349,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:0,'Other Products':1,Beauty:0}},
-    {date:'04/05',emp:'Violet Forde',hours:4.0,units:5,rrp:2149,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':1,Frozen:0,'Other Products':2,Beauty:0}},
-    {date:'09/05',emp:'Violet Forde',hours:4.0,units:8,rrp:3249,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':2,Frozen:1,'Other Products':2,Beauty:0}},
-    {date:'10/05',emp:'Violet Forde',hours:4.0,units:7,rrp:2799,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':1,Frozen:1,'Other Products':2,Beauty:0}},
-    {date:'16/05',emp:'Violet Forde',hours:4.5,units:8,rrp:3498,cats:{'Coffee Machine':0,Cooking:2,'Floor Care':3,Frozen:1,'Other Products':2,Beauty:0}},
-    {date:'17/05',emp:'Violet Forde',hours:4.5,units:9,rrp:3299,cats:{'Coffee Machine':0,Cooking:3,'Floor Care':2,Frozen:0,'Other Products':3,Beauty:1}},
-    {date:'23/05',emp:'Violet Forde',hours:4.17,units:4,rrp:1499,cats:{'Coffee Machine':0,Cooking:1,'Floor Care':0,Frozen:1,'Other Products':2,Beauty:0}},
-    {date:'24/05',emp:'Violet Forde',hours:5.0,units:4,rrp:1643,cats:{'Coffee Machine':1,Cooking:1,'Floor Care':1,Frozen:0,'Other Products':1,Beauty:0}}
+  Sep:[
+    {date:'03/09',emp:'Polly Tong',hours:4,units:5,rrp:2189.95,cats:{'Coffee Machine':1,'Cooking':1,'Floor Care':1,'Frozen':1,'Other Products':1,'Beauty':0}},
+    {date:'05/09',emp:'Pak Hay (Anson) Chan',hours:5,units:5,rrp:2448.96,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':1,'Frozen':1,'Other Products':2,'Beauty':0}},
+    {date:'06/09',emp:'Violet Forde',hours:5.5,units:9,rrp:5649.91,cats:{'Coffee Machine':1,'Cooking':1,'Floor Care':5,'Frozen':1,'Other Products':0,'Beauty':1}},
+    {date:'10/09',emp:'Polly Tong',hours:4,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}},
+    {date:'12/09',emp:'Pak Hay (Anson) Chan',hours:4,units:3,rrp:748.98,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':1,'Frozen':0,'Other Products':1,'Beauty':0}},
+    {date:'13/09',emp:'Pak Hay (Anson) Chan',hours:4,units:4,rrp:1629.96,cats:{'Coffee Machine':0,'Cooking':1,'Floor Care':1,'Frozen':0,'Other Products':2,'Beauty':0}},
+    {date:'17/09',emp:'Polly Tong',hours:4,units:1,rrp:99.99,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':1,'Beauty':0}},
+    {date:'19/09',emp:'Violet Forde',hours:4,units:5,rrp:2198.96,cats:{'Coffee Machine':0,'Cooking':2,'Floor Care':1,'Frozen':0,'Other Products':2,'Beauty':0}},
+    {date:'20/09',emp:'Violet Forde',hours:4,units:4,rrp:1349.96,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':1,'Frozen':1,'Other Products':1,'Beauty':1}},
+    {date:'24/09',emp:'Polly Tong',hours:4,units:4,rrp:1229.96,cats:{'Coffee Machine':1,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':3,'Beauty':0}},
+    {date:'26/09',emp:'Violet Forde',hours:4.5,units:10,rrp:4247.92,cats:{'Coffee Machine':0,'Cooking':4,'Floor Care':2,'Frozen':1,'Other Products':3,'Beauty':0}},
+    {date:'27/09',emp:'Violet Forde',hours:4,units:9,rrp:2678.92,cats:{'Coffee Machine':0,'Cooking':5,'Floor Care':1,'Frozen':1,'Other Products':2,'Beauty':0}},
+    {date:'29/09',emp:'Uyen Phuong Le',hours:3,units:0,rrp:0,cats:{'Coffee Machine':0,'Cooking':0,'Floor Care':0,'Frozen':0,'Other Products':0,'Beauty':0}}
   ]
 };
 
 const top20Products=[
-  {name:'Ninja Crispi 4-in-1 Glass Air Fryer',units:56,cat:'Cooking'},
-  {name:'Shark PowerPro Cordless Vacuum',units:20,cat:'Floor Care'},
-  {name:'Ninja Detect Kitchen System Blender',units:19,cat:'Cooking'},
-  {name:'The Ninja Slushie',units:16,cat:'Frozen'},
-  {name:'Ninja Foodi Smart XL Grill & Air Fryer',units:11,cat:'Cooking'},
-  {name:'Ninja Blast Max Cordless Blender',units:9,cat:'Other Products'},
-  {name:'Shark FlexStyle Air Styling System',units:9,cat:'Beauty'},
-  {name:'Ninja Nutri Precision Blender Mega',units:8,cat:'Cooking'},
-  {name:'Shark TurboBlade Bladeless Fan',units:8,cat:'Floor Care'},
-  {name:'Shark FlexBreeze HydroGo Misting Fan',units:8,cat:'Floor Care'},
-  {name:'Ninja Creami Deluxe Ice Cream Maker',units:7,cat:'Frozen'},
-  {name:'Shark Stratos Cordless Pet Pro Vacuum',units:7,cat:'Floor Care'},
-  {name:'Shark StainStriker HairPro Cleaner',units:7,cat:'Floor Care'},
-  {name:'Ninja Luxe Café Premier Espresso',units:6,cat:'Coffee Machine'},
-  {name:'Ninja Crispi Pro 6-in-1 Glass AF',units:6,cat:'Cooking'},
-  {name:'Ninja NeverClog Cold Press Juicer',units:4,cat:'Other Products'},
-  {name:'Ninja Luxe Café Knock Box',units:4,cat:'Coffee Machine'},
-  {name:'Shark CarpetXpert Deep Carpet Cleaner',units:4,cat:'Floor Care'},
-  {name:'Ninja XXXL FlexDrawer Air Fryer',units:4,cat:'Cooking'},
-  {name:'Ninja Woodfire Electric BBQ Grill',units:4,cat:'Cooking'}
+  {name:'Shark PowerLite Clean & Empty',units:13,cat:'Floor Care'},
+  {name:'Shark Steam & Scrub Mop',units:11,cat:'Floor Care'},
+  {name:'Shark PowerPro Cordless Vacuum',units:9,cat:'Floor Care'},
+  {name:'Shark PowerDetect Cordless Handstick Vacuum Cleaner with Auto Empty Dock',units:9,cat:'Floor Care'},
+  {name:'Ninja Crispi 4-in-1 Portable Glass Air Fryer',units:8,cat:'Cooking'},
+  {name:'Shark PowerDetect Speed Clean & Empty Ultramarine Blue',units:7,cat:'Floor Care'},
+  {name:'Ninja Foodi Smart XL Grill & Air Fryer',units:7,cat:'Cooking'},
+  {name:'Ninja Crispi Pro 6-in-1 Countertop Air Fryer Cyberspace',units:6,cat:'Cooking'},
+  {name:'Ninja BlendBOSS Tumbler Blender',units:6,cat:'Other Products'},
+  {name:'Ninja Crispi Pro 6-in-1 Countertop Air Fryer Pink',units:6,cat:'Cooking'},
+  {name:'The Ninja Slushie',units:6,cat:'Frozen'},
+  {name:'Ninja CREAMi Ice Cream Maker Stainless Steel',units:6,cat:'Frozen'},
+  {name:'Ninja Crispi Pro 6-in-1 Countertop Air Fryer Sage Green',units:6,cat:'Cooking'},
+  {name:'Ninja Crispi Pro 6-in-1 Countertop Air Fryer Stone',units:5,cat:'Cooking'},
+  {name:'Ninja Luxe Café Premier Espresso Machine - Oat Milk',units:4,cat:'Coffee Machine'},
+  {name:'Ninja DoubleStack XXXL 9.5L 2 Drawer Air Fryer',units:4,cat:'Cooking'},
+  {name:'Ninja Creami Deluxe Ice Cream Maker NC501ANZ',units:4,cat:'Frozen'},
+  {name:'Shark Glossi 2-in-1 Hot Tool and Air Glosser',units:4,cat:'Beauty'},
+  {name:'Shark FlexStyle Air Styling & Drying System',units:3,cat:'Beauty'},
+  {name:'Ninja Nutri Precision Blender Mega Pack',units:3,cat:'Other Products'}
 ];
-
 let activeFilter='All';
 let chartMonthly,chartRevenue,chartDoughnut,chartTop20,modalChartUhr,modalChartRevhr;
 
@@ -526,7 +506,7 @@ buildCharts();
 function checkPw(){
   const val=document.getElementById('pwi').value;
   const hash=Array.from(val).reduce((h,c)=>Math.imul(31,h)+c.charCodeAt(0)|0,0).toString(16);
-  if(hash==='318ae907'){
+  if(hash==='146c5776'){
     const s=document.getElementById('pw-screen');
     s.style.transition='opacity .4s';s.style.opacity=0;
     setTimeout(()=>{s.style.display='none';document.getElementById('main').style.display='block';},400);
